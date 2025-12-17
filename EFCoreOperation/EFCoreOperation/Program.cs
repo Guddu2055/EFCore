@@ -1,7 +1,6 @@
 
 using EFCoreOperation.Data;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 
 namespace EFCoreOperation
 {
@@ -15,6 +14,9 @@ namespace EFCoreOperation
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
+
+            // Use this (standard for v12+)
+            builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
             // Add services to the container.
 
             builder.Services.AddControllers();
@@ -27,6 +29,7 @@ namespace EFCoreOperation
             if (app.Environment.IsDevelopment())
             {
                 app.MapOpenApi();
+               
             }
 
             app.UseHttpsRedirection();

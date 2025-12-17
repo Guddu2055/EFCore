@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using EFCoreOperation.Data.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace EFCoreOperation.Data
 {
@@ -9,5 +10,9 @@ namespace EFCoreOperation.Data
         {
             
         }
+        public DbSet<Book> Books { get; set; }
+       public  DbSet<Language> Language { get; set; }
+        public DbSet<BookPrice> BookPrice { get; set; }
+        public DbSet<CurrencyType> CurrencyTypes { get; set; }
     }
 }
